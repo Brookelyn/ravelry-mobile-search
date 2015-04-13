@@ -35,7 +35,7 @@ $(document).ready(function() {
 
 	$('.search-result').find('>.extended').slideToggle(1000);
 
-	showHideExtended();
+	
 
 
 
@@ -49,6 +49,8 @@ $(document).ready(function() {
 	        });
 	    })
 	};
+
+	showHideExtended();
 
 });
 
