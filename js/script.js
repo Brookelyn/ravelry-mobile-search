@@ -10,6 +10,12 @@ $(document).ready(function() {
 	});
 
 
+	// layout Masonry again after all images have loaded
+	results.imagesLoaded(function() {
+	  results.masonry();
+	});
+
+
 
 	/* Search bar */
 
