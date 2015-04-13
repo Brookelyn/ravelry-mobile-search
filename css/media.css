@@ -1,0 +1,10 @@
+/* 350px to 500px */
+
+@media screen and (min-width: 350px) and (max-width: 500px) {
+	.search-result {
+		width: 47%;
+		display: block;
+		
+	}
+}
+
