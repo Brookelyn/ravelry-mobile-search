@@ -1,18 +1,13 @@
 $(document).ready(function() {
 
-	
-	/* Setting up Masonry for layout */
+	/* Setting up Masonry */	
 
-	var $results = $('#results');
+	var results = $('#results');
 	// initialize
-	$results.masonry({
-	  // columnWidth: '.search-results',
+	results.masonry({
+	  columnWidth: '.search-results',
 	  itemSelector: '.search-results'
 	});
-
-	
-
-	
 
 
 
@@ -26,11 +21,15 @@ $(document).ready(function() {
 	getPatterns(patterns);
 	});
 
-	showHideExtended();
+
+
+
 
 	/* Hide extended info after page loads */
 
 	$('.search-result').find('>.extended').slideToggle(1000);
+
+	showHideExtended();
 
 });
 
