@@ -5,15 +5,15 @@ $(document).ready(function() {
 	var results = $('#results');
 	// initialize
 	results.masonry({
-	  columnWidth: '.search-results',
-	  itemSelector: '.search-results'
+	  columnWidth: '.search-result',
+	  itemSelector: '.search-result'
 	});
 
 
 
 	/* Search bar */
 
-	$('.search-bar').submit( function(event){
+	$('.search-bar').submit(function(event){
 	// zero out results if previous search has run
 	$('.results').html('');
 	// get the value of the tags the user submitted
