@@ -12,7 +12,10 @@ $(document).ready(function() {
 
 	// layout Masonry again after all images have loaded
 	results.imagesLoaded(function() {
-	  results.masonry();
+		setTimeout(function(){
+			results.masonry();
+		}, 500);
+		
 	});
 
 
@@ -34,10 +37,6 @@ $(document).ready(function() {
 	/* Hide extended info after page loads */
 
 	$('.search-result').find('>.extended').slideToggle(1000);
-
-	
-
-
 
 
 	/* Show/hide extended info */
