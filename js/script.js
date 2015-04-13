@@ -9,7 +9,7 @@ $(document).ready(function() {
 	  itemSelector: '.search-result'
 	});
 
-	
+
 	// layout Masonry again after all images have loaded
 	results.imagesLoaded(function() {
 	  results.masonry();
@@ -37,15 +37,18 @@ $(document).ready(function() {
 
 	showHideExtended();
 
+
+
+
+	/* Show/hide extended info */
+
+	var showHideExtended = function(document) {
+		$('.search-result').click(function() {
+	        $(this).find('> .extended').slideToggle("fast", function(){
+	        	results.masonry();
+	        });
+	    };
+	};
+
 });
-
-
-/* Show/hide extended info */
-
-var showHideExtended = function(document) {
-	$('.search-result').click(function() {
-        $(this).find('> .extended').slideToggle("fast");
-    });
-
-};
 
