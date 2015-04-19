@@ -35,19 +35,10 @@ $(document).ready(function() {
 
 	var getPatterns = function(patterns){
 
-		// Access key: 3FCB9AFC6C5DE411E238
-		// Secret key: RlRox/RlIPJXadFh1DO21hKGFQdUv5M+22/v72yg
+		//url = 'https://api.ravelry.com/current_user.json'
+		url = 'https://openapi.etsy.com/v2/listings/active?api_key=t7fvlxxugcchh3iql15rox1e'
 
-
-		/* Setting parameters */
-		var parameters = {
-		username: '3FCB9AFC6C5DE411E238',
-		password: 'GC9bnXcG52OFhbuGyCn4M3QBxmVYrbqht-3iYGIm',
-		};
-		url = 'https://api.ravelry.com/current_user.json'
-
-
-		$.getJSON(url, parameters, function(data){
+		$.getJSON(url, function(data){
 			//showResults(data.items);
 			console.log(data);
 		});
