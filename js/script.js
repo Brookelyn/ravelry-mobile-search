@@ -23,12 +23,35 @@ $(document).ready(function() {
 	/* Search bar */
 
 	$('.search-bar').submit(function(event){
-	// zero out results if previous search has run
-	$('.results').html('');
-	// get the value of the tags the user submitted
-	var patterns = $(this).find("input[name='pattern']").val();
-	getPatterns(patterns);
+		// zero out results if previous search has run
+		$('.results').html('');
+		// get the value of the tags the user submitted
+		var patterns = $(this).find("input[name='pattern']").val();
+		getPatterns(patterns);
 	});
+
+
+
+
+	var getPatterns = function(patterns){
+
+		// Access key: 3FCB9AFC6C5DE411E238
+		// Secret key: RlRox/RlIPJXadFh1DO21hKGFQdUv5M+22/v72yg
+
+
+		/* Setting parameters */
+		var parameters = {
+		username: '3FCB9AFC6C5DE411E238',
+		password: 'GC9bnXcG52OFhbuGyCn4M3QBxmVYrbqht-3iYGIm',
+		};
+		url = 'https://api.ravelry.com/current_user.json'
+
+
+		$.getJSON(url, parameters, function(data){
+			//showResults(data.items);
+			console.log(data);
+		});
+	}
 
 
 
@@ -50,6 +73,49 @@ $(document).ready(function() {
 	};
 
 	showHideExtended();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 });
 
