@@ -33,19 +33,6 @@ $(document).ready(function() {
 
 
 
-	var getPatterns = function(patterns){
-
-		//url = 'https://api.ravelry.com/current_user.json'
-		url = 'https://openapi.etsy.com/v2/listings/active?api_key=t7fvlxxugcchh3iql15rox1e'
-
-		$.getJSON(url, function(data){
-			//showResults(data.items);
-			console.log(data);
-		});
-	}
-
-
-
 
 
 	/* Hide extended info after page loads */
@@ -66,8 +53,64 @@ $(document).ready(function() {
 	showHideExtended();
 
 
+	/* Connection through proxy to allow me to search */
+
+	var getPatterns = function(result){
+
+	    // TODO: Sort out paging parameters
+
+	    
+
+	    var result = $.ajax({
+	    	url: 'http://localhost:8080/api/search/' + result + '/0/100',
+		    type:'GET',
+		    dataType: "json"
+		   
+	    })
+	    .done(function (result) {
+		    processArray();
+		    console.log(result)
+		    $.each(result.pattern_sources, function(i, item) {
+		    	var searchResults =  displayPatternResults(item);
+		    	$('.results-sontainer').append(searchResults);
+		    });
+	    })
+	    
+	}
 
 
+	var displayPatternResults = function(result) {
+
+		// Clone template
+		var testing = $('.template .search-result').clone();
+
+		// Set pattern name
+		var patternName = testing.find('.project-name');
+		patternName.text(result.pattern_sources.name);
+
+		// Set pattern designer
+		var designer = testing.find('.designer');
+		designer.text(result.pattern_sources.author);
+
+		// Set link to pattern
+		var patternLink = testing.find('.search-result');
+		var link = 'http://www.ravelry.com/patterns/sources/' + result.pattern_sources.permalink;
+		patternLink.attr('href', link);
+
+		//Set image
+		var patternPic = testing.find('.pattern-picture');
+		patternPic.attr('src', result.pattern_sources.shelf_image_path);
+
+
+
+	}
+
+
+var processArray = function(array) {
+	for (var i = 0; i <= array.length; i += 1) {
+		addItem(array[i]);
+	}
+};
 
 
 
